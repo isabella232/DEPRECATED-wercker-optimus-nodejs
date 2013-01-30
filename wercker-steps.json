@@ -4,35 +4,28 @@
       "options" : {
         "commands" : [
           "sudo chown ubuntu -R /build",
+          ". ~/node_$WERCKER_PLATFORM_VERSION/bin/activate",
+          "node --version",
+          "npm --version",
           "cd $WERCKER_ROOT"
         ]}}],
   "dependencySteps" : [
-    {"name" : "cookbooks", "type" : "commands-step", "blocking" : false,
+    {"name" : "npm_install", "type" : "commands-step", "blocking" : false,
       "options" : {
-        "dependentOnFile" : "Berksfile",
+        "dependentOnFile" : "package.json",
         "commands" : [
           "cd $WERCKER_ROOT",
-          "berks install -p cookbooks"
+          "npm install"
         ]}}
   ],
   "testSteps" : [
-    {"name" : "does_optimus_json_exist", "type" : "commands-step", "blocking" : false,
+    {"name" : "npm_test", "type" : "commands-step", "blocking" : false,
       "options" : {
+        "dependentOnFile" : "package.json",
         "commands" : [
           "cd $WERCKER_ROOT",
-          "test -e optimus.json"
+          "npm test"
         ]}},
-    {"name" : "json_lint_optimus", "type" : "commands-step", "blocking" : false,
-      "options" : {
-        "commands" : [
-          "cd $WERCKER_ROOT",
-          "cat optimus.json | python -mjson.tool"
-        ]}},
-    {"name" : "json_lint_steps", "type" : "commands-step", "blocking" : false,
-      "options" : {
-        "dependentOnFile" : "wercker-steps.json",
-        "commands" : [
-          "cat wercker-steps.json | python -mjson.tool"
-        ]}}
+    {"name" : "jshint", "type" : "jshint-step", "blocking" : false}
   ]
 }

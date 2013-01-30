@@ -3,15 +3,16 @@
 	"version" : "0.0.1",
 	"stackInfo" :
   	{
-      "stackVersions" : ["0.0.0"],
-      "defaultVersion" : "0.0.0",
+      "stackVersions" : ["0.6.21", "0.8.16", "0.9.5"],
+      "defaultVersion" : "0.8.16",
       "versionMapping": [
-          {"0" : "0.0.0"}
-      ]
+        {"0.6" : "0.6.21"},
+        {"0.8" : "0.8.16"},
+        {"0.9" : "0.9.5"}]
   	},
   "isPrivate" : false,
   "mainDetect" : [ {"files" : ["optimus.json"]}],
   "supportDetect" : [],
-  "packageIgnore" : [],
+  "packageIgnore" : ["node_modules", ".idea", ".git", ".gitignore", ".gitmodules", ".jshintignore", ".jshintrc"],
   "priority" : 10000
 }
