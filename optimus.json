@@ -11,7 +11,7 @@
         {"0.9" : "0.9.5"}]
   	},
   "isPrivate" : false,
-  "mainDetect" : [ {"files" : ["optimus.json"]}],
+  "mainDetect" : [ {"files" : ["package.json"]}],
   "supportDetect" : [],
   "packageIgnore" : ["node_modules", ".idea", ".git", ".gitignore", ".gitmodules", ".jshintignore", ".jshintrc"],
   "priority" : 10000
