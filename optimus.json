@@ -1,18 +1,42 @@
 {
-	"name" : "nodejs",
-	"version" : "0.0.4",
-	"stackInfo" :
-  	{
-      "stackVersions" : ["0.6.21", "0.8.16", "0.9.5"],
-      "defaultVersion" : "0.8.16",
-      "versionMapping": [
-        {"0.6" : "0.6.21"},
-        {"0.8" : "0.8.16"},
-        {"0.9" : "0.9.5"}]
-  	},
-  "isPrivate" : false,
-  "mainDetect" : [ {"files" : ["package.json"]}],
-  "supportDetect" : [],
-  "packageIgnore" : ["node_modules", ".idea", ".git", ".gitignore", ".gitmodules", ".jshintignore", ".jshintrc"],
-  "priority" : 10000
+  "name": "nodejs",
+  "version": "0.0.5",
+  "stackInfo": {
+    "stackVersions": [
+      "0.6.21",
+      "0.8.16",
+      "0.9.5"
+    ],
+    "defaultVersion": "0.8.16",
+    "versionMapping": [
+      {
+        "0.6": "0.6.21"
+      },
+      {
+        "0.8": "0.8.16"
+      },
+      {
+        "0.9": "0.9.5"
+      }
+    ]
+  },
+  "isPrivate": false,
+  "mainDetect": [
+    {
+      "files": [
+        "package.json"
+      ]
+    }
+  ],
+  "supportDetect": [],
+  "packageIgnore": [
+    "node_modules",
+    ".idea",
+    ".git",
+    ".gitignore",
+    ".gitmodules",
+    ".jshintignore",
+    ".jshintrc"
+  ],
+  "priority": 10000
 }
