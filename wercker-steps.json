@@ -1,8 +1,11 @@
 {
-  "platformSteps" : [
-    {"name" : "platform", "type" : "commands-step", "blocking" : true,
-      "options" : {
-        "commands" : [
+  "platformSteps": [
+    {
+      "name": "platform",
+      "type": "commands-step",
+      "blocking": true,
+      "options": {
+        "commands": [
           "sudo chown ubuntu -R /build",
           ". ~/node_$WERCKER_PLATFORM_VERSION/bin/activate",
           "node --version",
@@ -10,24 +13,41 @@
           "mkdir -p /cache/wercker/npm",
           "npm config set cache /cache/wercker/npm",
           "cd $WERCKER_ROOT"
-        ]}}],
-  "dependencySteps" : [
-    {"name" : "npm_install", "type" : "commands-step", "blocking" : false,
-      "options" : {
-        "dependentOnFile" : "package.json",
-        "commands" : [
+        ]
+      }
+    }
+  ],
+  "dependencySteps": [
+    {
+      "name": "npm install",
+      "type": "commands-step",
+      "blocking": false,
+      "options": {
+        "dependentOnFile": "package.json",
+        "commands": [
           "cd $WERCKER_ROOT",
           "npm install"
-        ]}}
+        ]
+      }
+    }
   ],
-  "testSteps" : [
-    {"name" : "npm_test", "type" : "commands-step", "blocking" : false,
-      "options" : {
-        "dependentOnFile" : "package.json",
-        "commands" : [
+  "testSteps": [
+    {
+      "name": "npm test",
+      "type": "commands-step",
+      "blocking": false,
+      "options": {
+        "dependentOnFile": "package.json",
+        "commands": [
           "cd $WERCKER_ROOT",
           "npm test"
-        ]}},
-    {"name" : "jshint", "type" : "jshint-step", "blocking" : false}
+        ]
+      }
+    },
+    {
+      "name": "jshint",
+      "type": "jshint-step",
+      "blocking": false
+    }
   ]
 }
